@@ -9,7 +9,7 @@
             --bg-color: #ffffff;
             --text-color: #333333;
             --button-bg: #f0f0f0;
-            --button-text: #333333;
+            --button-text: white;
             --button-hover: #e0e0e0;
         }
 
@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            background-color:	#1B1212;
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -105,7 +105,7 @@
 
         .btn {
             background-color: var(--button-bg);
-            color: var(--button-text);
+            color: white;
             border: none;
             border-radius: 8px;
             padding: 15px 30px;
@@ -118,7 +118,7 @@
         }
 
         .btn:hover {
-            background-color: var(--button-hover);
+            background-color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -152,15 +152,11 @@
         }
     </style>
 </head>
-<body>
-    <button class="theme-toggle" id="themeToggle">
-        <span id="themeIcon">🌙</span> 
-        <span id="themeText">Dark Mode</span>
-    </button>
-
+    <body>
+        
     <div class="container">
         <div class="button-section">
-            <button class="btn" id="leftBtn" style="background-color:darkred">Faculty Workspace</button>
+            <button onclick="window.location.href='left.html'">Faculty Workspace</button>
         </div>
         
         <div class="logo-section">
@@ -170,49 +166,11 @@
         </div>
         
         <div class="button-section">
-            <button class="btn" id="rightBtn" style="background-color:darkblue">Student<br> Hub</button>
+            <button onclick="windowd.location.href='right.html'">Student<br> Hub</button>
         </div>
     </div>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply the saved theme on page load
-        if (currentTheme === 'dark') {
-            body.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '☀️';
-            themeText.textContent = 'Light Mode';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark Mode';
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light Mode';
-            }
-        });
-        
-        // Button functionality
-        document.getElementById('leftBtn').addEventListener('click', function() {
-            alert('About Us button clicked!');
-        });
-        
-        document.getElementById('rightBtn').addEventListener('click', function() {
-            alert('Contact button clicked!');
-        });
         
         // Handle image loading error
         document.getElementById('logo').addEventListener('error', function() {
