@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skolaris Landing Page</title>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --button-bg: #f0f0f0;
-            --button-text: white;
-            --button-hover: #e0e0e0;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f0f0f0;
-            --button-bg: #333333;
-            --button-text: #f0f0f0;
-            --button-hover: #444444;
-        }
 
         * {
             margin: 0;
@@ -30,34 +15,13 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color:	#1B1212;
-            color: var(--text-color);
+            background-color: #000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--button-bg);
-            color: var(--button-text);
-            border: none;
-            border-radius: 20px;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .theme-toggle:hover {
-            background: var(--button-hover);
         }
 
         .container {
@@ -103,8 +67,7 @@
             border-radius: 50%;
         }
 
-        .btn {
-            background-color: var(--button-bg);
+        .btn {);
             color: white;
             border: none;
             border-radius: 8px;
@@ -115,10 +78,11 @@
             width: 80%;
             max-width: 200px;
             text-align: center;
+            font-weight: 800;
         }
 
         .btn:hover {
-            background-color: white;
+            background-color: var(--button-hover);
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -152,11 +116,11 @@
         }
     </style>
 </head>
-    <body>
-        
+<body>
     <div class="container">
         <div class="button-section">
-            <button onclick="window.location.href='left.html'">Faculty Workspace</button>
+            <button class="btn" id="leftBtn" style="background-color:darkred"
+            onclick="window.location.href='left.html'">Faculty Workspace</button>
         </div>
         
         <div class="logo-section">
@@ -166,11 +130,20 @@
         </div>
         
         <div class="button-section">
-            <button onclick="windowd.location.href='right.html'">Student<br> Hub</button>
+            <button class="btn" id="rightBtn" style="background-color:darkblue"
+            onclick="window.location.href='right.html'">Student<br> Hub</button>
         </div>
     </div>
 
     <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
         
         // Handle image loading error
         document.getElementById('logo').addEventListener('error', function() {
